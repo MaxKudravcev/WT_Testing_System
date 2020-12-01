@@ -6,15 +6,21 @@
   <body>
 
   <!-- header -->
-  <div>
-    <h1>Welcome to Garbage Testing System</h1>
-  </div>
+  <header>
+    <jsp:include page="WEB-INF/jsp/header.jsp"/>
+  </header>
 
-  <div>       <!-- content -->
+  <!-- content -->
+  <main>
     <div>    <!-- buttons holder -->
-      <button onclick="location.href='/Controller?command=go_to_signup'">Sign Up!</button>
+      <button onclick="location.href='Controller?command=go_to_signup'">Sign Up!</button>
     </div>
-  </div>
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <jsp:include page="WEB-INF/jsp/footer.jsp"/>
+  </footer>
 
   </body>
 </html>

@@ -11,6 +11,7 @@ final class CommandProvider {
     CommandProvider() {
         repository.put(CommandName.GO_TO_SIGNUP, new GoToSignUpPageCommand());
         repository.put(CommandName.WRONG_REQUEST, new WrongRequestCommand());
+        repository.put(CommandName.SIGNUP, new SignUpCommand());
     }
 
     Command getCommand(String name) {
