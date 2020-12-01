@@ -3,4 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <!-- Controller Servlet -->
+    <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>org.leatherclub.testingSystem.controller.Controller</servlet-class>
+    </servlet>
+
+    <!-- Controller Mapping -->
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/Controller</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -1,16 +1,20 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HP
-  Date: 01.12.2020
-  Time: 12:06
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Garbage Testing System</title>
   </head>
   <body>
-  $END$
+
+  <!-- header -->
+  <div>
+    <h1>Welcome to Garbage Testing System</h1>
+  </div>
+
+  <div>       <!-- content -->
+    <div>    <!-- buttons holder -->
+      <button onclick="location.href='/Controller?command=go_to_signup'">Sign Up!</button>
+    </div>
+  </div>
+
   </body>
 </html>
