@@ -5,8 +5,22 @@
 </head>
 <body>
     <h2>Welcome, <c:out value="${user.name}"/></h2>
+    <h3>Your role is <i><c:out value="${user.roleName}"/></i>.</h3>
     <br/>
 
+    <div>
+        <c:forEach items="${subjects}" var="subject">
+            <i><c:out value="${subject.name}"/></i><br/><br/>
+        </c:forEach>
+    </div>
+
+    <c:if test="${user.roleName != 'student'}">
+        <div>
+            <br/>
+            <button onclick="location.href='Controller?command=go_to_add&entity=subject'">Add subject</button>
+        </div>
+    </c:if>
+    <br/>
     <div>    <!-- buttons holder -->
         <button onclick="location.href='Controller?command=signout'">Sign Out</button>
     </div>

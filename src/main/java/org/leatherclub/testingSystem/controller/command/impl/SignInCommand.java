@@ -1,7 +1,9 @@
 package org.leatherclub.testingSystem.controller.command.impl;
 
+import org.leatherclub.testingSystem.bean.Subject;
 import org.leatherclub.testingSystem.bean.User;
 import org.leatherclub.testingSystem.controller.command.Command;
+import org.leatherclub.testingSystem.service.SubjectService;
 import org.leatherclub.testingSystem.service.UserService;
 import org.leatherclub.testingSystem.service.exception.ServiceException;
 import org.leatherclub.testingSystem.service.factory.ServiceFactory;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 public class SignInCommand implements Command {
 
@@ -19,6 +22,7 @@ public class SignInCommand implements Command {
     private static final String REDIRECT_COMMAND_SUCCESS = "Controller?command=go_to_main&signin=success";
     private static final String REDIRECT_COMMAND_ERROR = "Controller?command=go_to_main&signin=error";
     private static final String USER_SESSION_ATTR = "user";
+    private static final String SUBJECTS_SESSION_ATTR = "subjects";
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -27,6 +31,7 @@ public class SignInCommand implements Command {
 
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         UserService userService = serviceFactory.getUserService();
+        SubjectService subjectService = serviceFactory.getSubjectService();
         HttpSession session = req.getSession(true);
 
         try {
@@ -35,6 +40,8 @@ public class SignInCommand implements Command {
             if(user == null)
                 resp.sendRedirect(REDIRECT_COMMAND_ERROR);
             else {
+                List<Subject> subjects = subjectService.getSubjects();
+                session.setAttribute(SUBJECTS_SESSION_ATTR, subjects);
                 session.setAttribute(USER_SESSION_ATTR, user);
                 resp.sendRedirect(REDIRECT_COMMAND_SUCCESS);
             }

@@ -42,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User sigiIn(String login, byte[] password) throws DAOException {
+    public User signIn(String login, byte[] password) throws DAOException {
         PreparedStatement ps = null;
         Connection connection = null;
         ResultSet rs = null;

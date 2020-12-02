@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
         UserDAO userDAO = daoFactory.getUserDao();
 
         try {
-            return userDAO.sigiIn(login, password);
+            return userDAO.signIn(login, password);
         }
         catch (DAOException e) {
             throw new ServiceException("Error while signing in", e);
