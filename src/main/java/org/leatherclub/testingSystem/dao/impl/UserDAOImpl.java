@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 
     private static final ConnectionPool connectionPool = ConnectionPool.getInstance();
 
-    private static final String INSERT_USER_SQL = "INSERT testsdb.users(login, pass_hash, 'name', lastname, email, 'role') VALUES (?,?,?,?,?,?)";
+    private static final String INSERT_USER_SQL = "INSERT testsdb.users(login, pass_hash, `name`, lastname, email, `role`) VALUES (?,?,?,?,?,?)";
     private static final String SIGN_IN_SQL = "SELECT u.*, r.name as roleName FROM testsdb.users u INNER JOIN testsdb.roles r ON u.role = r.id where u.login = ? and u.pass_hash = ?";
 
     public UserDAOImpl() {}
@@ -49,7 +49,7 @@ public class UserDAOImpl implements UserDAO {
 
         try {
             connection = connectionPool.takeConnection();
-            ps = connection.prepareStatement(SIGN_IN_SQL);
+            ps = connection.prepareStatement(SIGN_IN_SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, login);
             ps.setString(2, getMD5Hash(password));
 

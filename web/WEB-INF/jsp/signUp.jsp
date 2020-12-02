@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Sign Up to Garbage Testing System</title>
@@ -12,6 +13,16 @@
 
     <!-- main -->
     <main>
+
+        <c:if test="${param.error == 'error'}">
+            <h2>Oops. Something went wrong while signing up. Try again.</h2>
+        </c:if>
+        <c:if test="${param.error == 'unique'}">
+            <h2>Oops. User with this login already exists. Try again.</h2>
+        </c:if>
+
+
+
         <div> <!-- registration container -->
             <form action="Controller" method="post">
                 <input type="hidden" name="command" value="signup"/>
@@ -21,7 +32,7 @@
                 <input type="text" id="login" name="login"/>
 
                 <br/>
-                <label for="email">Name</label>
+                <label for="email">Email</label>
                 <input type="text" id="email" name="email"/>
 
                 <br/>

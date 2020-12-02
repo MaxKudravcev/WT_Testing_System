@@ -19,8 +19,8 @@ public class SignUpCommand implements Command {
     private static final String REQUEST_PARAM_LASTNAME = "lastname";
     private static final String REQUEST_PARAM_PASSWORD = "password";
     private static final String REDIRECT_COMMAND_SUCCESS = "Controller?command=go_to_main&register=success";
-    private static final String REDIRECT_COMMAND_ERROR = "Controller?command=go_to_register&error=error";
-    private static final String REDIRECT_COMMAND_ERROR_DUPLICATE = "Controller?command=go_to_register&error=unique";
+    private static final String REDIRECT_COMMAND_ERROR = "Controller?command=go_to_signup&error=error";
+    private static final String REDIRECT_COMMAND_ERROR_DUPLICATE = "Controller?command=go_to_signup&error=unique";
     private static final int DEFAULT_ROLE_ID = 2;
 
     @Override
