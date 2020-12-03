@@ -22,7 +22,6 @@ public class SignInCommand implements Command {
     private static final String REDIRECT_COMMAND_SUCCESS = "Controller?command=go_to_main&signin=success";
     private static final String REDIRECT_COMMAND_ERROR = "Controller?command=go_to_main&signin=error";
     private static final String USER_SESSION_ATTR = "user";
-    private static final String SUBJECTS_SESSION_ATTR = "subjects";
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -31,7 +30,6 @@ public class SignInCommand implements Command {
 
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         UserService userService = serviceFactory.getUserService();
-        SubjectService subjectService = serviceFactory.getSubjectService();
         HttpSession session = req.getSession(true);
 
         try {
@@ -40,8 +38,6 @@ public class SignInCommand implements Command {
             if(user == null)
                 resp.sendRedirect(REDIRECT_COMMAND_ERROR);
             else {
-                List<Subject> subjects = subjectService.getSubjects();
-                session.setAttribute(SUBJECTS_SESSION_ATTR, subjects);
                 session.setAttribute(USER_SESSION_ATTR, user);
                 resp.sendRedirect(REDIRECT_COMMAND_SUCCESS);
             }

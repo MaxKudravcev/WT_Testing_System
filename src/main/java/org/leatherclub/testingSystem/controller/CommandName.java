@@ -6,5 +6,11 @@ public enum CommandName {
     SIGNUP,
     GO_TO_MAIN,
     SIGNIN,
-    SIGNOUT
+    SIGNOUT,
+    GO_TO_ADD,
+    ADDENTITY,
+    DELETE,
+    GO_TO_EDIT,
+    EDITENTITY,
+    GO_TO_TESTS
 }

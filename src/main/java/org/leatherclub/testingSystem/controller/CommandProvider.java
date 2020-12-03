@@ -15,6 +15,12 @@ final class CommandProvider {
         repository.put(CommandName.GO_TO_MAIN, new GoToMainCommand());
         repository.put(CommandName.SIGNIN, new SignInCommand());
         repository.put(CommandName.SIGNOUT, new SignOutCommand());
+        repository.put(CommandName.GO_TO_ADD, new GoToAddCommand());
+        repository.put(CommandName.ADDENTITY, new AddEntityCommand());
+        repository.put(CommandName.DELETE, new DeleteCommand());
+        repository.put(CommandName.GO_TO_EDIT, new GoToEditCommand());
+        repository.put(CommandName.EDITENTITY, new EditEntityCommand());
+        repository.put(CommandName.GO_TO_TESTS, new GoToTestsCommand());
     }
 
     Command getCommand(String name) {
