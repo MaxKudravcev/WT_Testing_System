@@ -11,9 +11,11 @@
     <div>
         <c:forEach items="${subjects}" var="subject">
             <a href="Controller?command=go_to_tests&subjectId=<c:out value="${subject.subjectId}"/>"><c:out value="${subject.name}"/></a>
-            <button onclick="location.href='Controller?command=go_to_edit&entity=subject&' +
-                                           'id=<c:out value="${subject.subjectId}"/>&text=<c:out value="${subject.name}"/>'">Edit</button>
-            <button onclick="location.href='Controller?command=delete&entity=subject&id=<c:out value="${subject.subjectId}"/>'">Delete</button>
+            <c:if test="${user.roleName != 'student'}">
+                <button onclick="location.href='Controller?command=go_to_edit&entity=subject&' +
+                                               'id=<c:out value="${subject.subjectId}"/>&text=<c:out value="${subject.name}"/>'">Edit</button>
+                <button onclick="location.href='Controller?command=delete&entity=subject&id=<c:out value="${subject.subjectId}"/>'">Delete</button>
+            </c:if>
             <br/><br/>
         </c:forEach>
     </div>

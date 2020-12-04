@@ -13,5 +13,6 @@ public enum CommandName {
     GO_TO_EDIT,
     EDITENTITY,
     GO_TO_TESTS,
-    GO_TO_QUESTIONS
+    GO_TO_QUESTIONS,
+    NEXT_QUESTION
 }

@@ -24,6 +24,9 @@ public class GoToTestsCommand implements Command {
     private static final String REQUEST_PARAMETER_SUBJECTID = "subjectId";
     private static final String SUBJECTID_SESSION_ATTR = "subjectId";
     private static final String TESTID_SESSION_ATTR = "testId";
+    private static final String NUMBER_OF_QUESTIONS_SESSION_ATTR = "numOfQuestions";
+    private static final String RIGHT_ANSWERS_SESSION_ATTR = "rightAnswers";
+    private static final String CURRENT_QUESTION_SESSION_ATTR = "currQuestion";
 
     private static final String REDIRECT_COMMAND_ERROR = "Controller?command=go_to_main&error=error";
 
@@ -33,6 +36,11 @@ public class GoToTestsCommand implements Command {
 
         HttpSession session = req.getSession(true);
         session.removeAttribute(TESTID_SESSION_ATTR);
+        session.removeAttribute(NUMBER_OF_QUESTIONS_SESSION_ATTR);
+        session.removeAttribute(RIGHT_ANSWERS_SESSION_ATTR);
+        session.removeAttribute(CURRENT_QUESTION_SESSION_ATTR);
+
+
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         TestService testService = serviceFactory.getTestService();
 
