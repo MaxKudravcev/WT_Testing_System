@@ -20,6 +20,9 @@
                 <textarea name="text"><c:out value="${param.text}"/></textarea>
             </c:otherwise>
         </c:choose>
+        <c:if test="${param.entity == 'answer'}">
+            <input type="checkbox" name="isRight" value="true" <c:if test="${param.isRight == 'true'}"><c:out value="checked"/></c:if>/>
+        </c:if>
         <input type="submit" value="Save">
     </form>
 </main>

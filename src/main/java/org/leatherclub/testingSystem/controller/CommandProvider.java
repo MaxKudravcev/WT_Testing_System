@@ -21,6 +21,7 @@ final class CommandProvider {
         repository.put(CommandName.GO_TO_EDIT, new GoToEditCommand());
         repository.put(CommandName.EDITENTITY, new EditEntityCommand());
         repository.put(CommandName.GO_TO_TESTS, new GoToTestsCommand());
+        repository.put(CommandName.GO_TO_QUESTIONS, new GoToQuestionsCommand());
     }
 
     Command getCommand(String name) {

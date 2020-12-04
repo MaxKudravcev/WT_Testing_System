@@ -21,8 +21,9 @@ public class GoToTestsCommand implements Command {
     private static final String TESTS_PAGE_URI = "WEB-INF/jsp/tests.jsp";
 
     private static final String TESTS_SESSION_ATTR = "tests";
-    private static final String REQUEST_PARAMETER_SUBJECTID = "id";
-    private static final String SUBJECTID_SESSION_ATTR = "id";
+    private static final String REQUEST_PARAMETER_SUBJECTID = "subjectId";
+    private static final String SUBJECTID_SESSION_ATTR = "subjectId";
+    private static final String TESTID_SESSION_ATTR = "testId";
 
     private static final String REDIRECT_COMMAND_ERROR = "Controller?command=go_to_main&error=error";
 
@@ -31,7 +32,7 @@ public class GoToTestsCommand implements Command {
 
 
         HttpSession session = req.getSession(true);
-
+        session.removeAttribute(TESTID_SESSION_ATTR);
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         TestService testService = serviceFactory.getTestService();
 

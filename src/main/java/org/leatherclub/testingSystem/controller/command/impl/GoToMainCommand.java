@@ -20,7 +20,7 @@ public class GoToMainCommand implements Command {
     private static final String MAIN_PAGE_URI = "index.jsp";
     private static final String USER_SESSION_ATTR = "user";
     private static final String SUBJECTS_SESSION_ATTR = "subjects";
-    private static final String SUBJECTID_SESSION_ATTR = "id";
+    private static final String SUBJECTID_SESSION_ATTR = "subjectId";
     private static final String TESTS_SESSION_ATTR = "tests";
     private static final String REDIRECT_COMMAND_ERROR = "Controller?command=go_to_main&error=error";
 

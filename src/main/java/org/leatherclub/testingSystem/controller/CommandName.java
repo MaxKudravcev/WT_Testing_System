@@ -12,5 +12,6 @@ public enum CommandName {
     DELETE,
     GO_TO_EDIT,
     EDITENTITY,
-    GO_TO_TESTS
+    GO_TO_TESTS,
+    GO_TO_QUESTIONS
 }
