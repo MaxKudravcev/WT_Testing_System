@@ -1,15 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "custom" uri = "/WEB-INF/tld/conditionalMsg.tld"%>
 <html>
 <head>
 </head>
 <body>
-    <c:if test="${param.register == 'success'}">
-        <h2>You have signed up successfully!</h2>
-    </c:if>
-    <c:if test="${param.signin == 'error'}">
-        <h2>Invalid login or password.</h2>
-    </c:if>
+    <custom:condMsg condition="${param.register == 'success'}" message="You have signed up successfully!"/>
+    <custom:condMsg condition="${param.signin == 'error'}" message="Invalid login or password."/>
 
     <div> <!-- login form -->
         <h3>Sign In:</h3>
