@@ -20,4 +20,18 @@
         <listener-class>org.leatherclub.testingSystem.controller.ContextListener</listener-class>
     </listener>
 
+    <filter>
+        <filter-name>CharsetFilter</filter-name>
+        <filter-class>org.leatherclub.testingSystem.controller.CharsetFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CharsetFilter</filter-name>
+        <servlet-name>Controller</servlet-name>
+    </filter-mapping>
+
 </web-app>
