@@ -1,5 +1,7 @@
 package org.leatherclub.testingSystem.controller;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.leatherclub.testingSystem.controller.command.Command;
 
 import javax.servlet.ServletException;
@@ -13,8 +15,13 @@ public class Controller extends HttpServlet {
     private static final String REQUEST_PARAM_COMMAND = "command";
     private static final String LAST_REQUEST_PARAM = "lastRequest";
 
+    private final Logger logger;
+
     public Controller() {
         super();
+
+        logger = Logger.getLogger(Controller.class);
+        PropertyConfigurator.configure(Controller.class.getClassLoader().getResource("log4j.properties"));
     }
 
     private final CommandProvider provider = new CommandProvider();
@@ -38,7 +45,13 @@ public class Controller extends HttpServlet {
         commandName = req.getParameter(REQUEST_PARAM_COMMAND);
 
         executionCommand = provider.getCommand(commandName);
-        executionCommand.execute(req, resp);
+        try {
+            executionCommand.execute(req, resp);
+        }
+        catch (Exception e) {
+            logger.debug(e);
+        }
+
 
         req.getSession(true).setAttribute(LAST_REQUEST_PARAM, req.getRequestURI() + "?" + req.getQueryString());
     }
@@ -50,6 +63,12 @@ public class Controller extends HttpServlet {
         commandName = req.getParameter(REQUEST_PARAM_COMMAND);
 
         executionCommand = provider.getCommand(commandName);
-        executionCommand.execute(req, resp);
+        try {
+            executionCommand.execute(req, resp);
+        }
+        catch (Exception e) {
+            logger.debug(e);
+        }
+
     }
 }
